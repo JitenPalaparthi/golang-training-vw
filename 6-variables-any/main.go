@@ -60,3 +60,5 @@ type Employee struct {
 Data Pointer: Address of the original data --> 8 bytes
 Type Pointer: Address to the type --> 8 bytes
 */
+
+// https://github.com/JitenPalaparthi/golang-training-vw
