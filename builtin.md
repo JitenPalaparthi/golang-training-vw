@@ -1,6 +1,6 @@
-### Keywords (17/25)
+### Keywords (18/25)
 
-break,case,const,continue,default,else,fallthrough,if,import,for,func,goto,package,return,switch,var
+break,case,const,continue,default,else,fallthrough,if,import,for,func,goto,package,range,return,switch,var
 
-### Builtin
-print,println,len,complex,real,imag
+### Builtin (13/18)
+append,cap,clear,complex,copy,len,imag,make,max,min,real,print,println
