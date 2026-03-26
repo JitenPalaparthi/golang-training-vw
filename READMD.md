@@ -68,3 +68,9 @@ GOOS=linux GOARCH=arm64 go build -ldflags="-s -w" -o demo_mim_linux_arm64 main.g
 
 
 ```
+
+- To pull package
+
+```bash
+go get github.com/JitenPalaparthi/shapes-pacakge-demo@v1.0.0
+```
