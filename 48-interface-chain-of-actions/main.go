@@ -7,7 +7,6 @@ func main() {
 	// db.select().filter().where().limit().offset().exec()
 	r := NewClac(10.5).Add(12.3).Add(10.4).Sub(5.4).Mul(8).Div(4).Get()
 	fmt.Printf("Result:%.2f\n", r)
-
 }
 
 type ICalc interface {
