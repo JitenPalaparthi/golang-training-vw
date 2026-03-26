@@ -10,7 +10,6 @@ func main() {
 	_, err := fmt.Fprintln(fw, "Hello World") // writtn on file not on stdout
 	if err != nil {
 		//println(err.Error())
-
 		fe, ok := err.(*FileError)
 		if ok {
 			fmt.Println(fe.Msg)
@@ -19,7 +18,6 @@ func main() {
 		}
 
 	}
-
 }
 
 // interfaces are auto implemented
@@ -62,3 +60,10 @@ func (fe *FileError) Error() string {
 // type error interface {
 //     Error() string
 // }
+
+// Dynamic Dispatch
+// At runtime .. it checks for the required functions and execute
+
+// virtual tables (in c++ VTables)
+// in go itables --> For every concrete type , if a dynamic dispatch is implemented
+// it maints a in memory table with concrete type , function pointer

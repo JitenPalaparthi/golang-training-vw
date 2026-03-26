@@ -1,0 +1,22 @@
+package main
+
+import "fmt"
+
+type IShape interface {
+	IArea
+	Perimeter() float64
+	IWhat
+}
+
+type IArea interface {
+	Area() float64
+}
+
+type IWhat interface {
+	What() string
+}
+
+func Shape(ishape IShape) { // kind of dependency injection
+	fmt.Printf("Area of %s:%.2f\n", ishape.What(), ishape.Area())
+	fmt.Printf("Perimeter of %s:%.2f\n", ishape.What(), ishape.Perimeter())
+}
