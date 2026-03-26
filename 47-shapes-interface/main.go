@@ -12,7 +12,6 @@ func main() {
 		Shape(sh)
 		println()
 	}
-
 }
 
 // Rect, Square
