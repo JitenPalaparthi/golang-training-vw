@@ -4,3 +4,6 @@ break,case,chan,const,continue,default,defer,else,fallthrough,if,import,interfac
 
 ### Builtin (18/18)
 append,cap,clear,close,complex,copy,delete,len,imag,make,max,min,new,real,recover,panic,print,println
+
+### special
+uintptr , unsafe.Pointer
