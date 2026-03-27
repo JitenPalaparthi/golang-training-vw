@@ -6,6 +6,7 @@ import (
 	"log/slog"
 	"os"
 	"runtime"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 )
@@ -32,7 +33,16 @@ func init() {
 	}
 }
 
+func shortFile(file string) string {
+	parts := strings.Split(file, "/")
+	return parts[len(parts)-1]
+}
+
 func main() {
+
+	logger := slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{AddSource: true}))
+
+	logger.Info("hello world")
 	r := gin.Default()
 
 	r.GET("/ping", handlers.Ping)
@@ -45,12 +55,14 @@ func main() {
 		panic(err.Error())
 	}
 
-	iuserdb := database.NewUserDB(db)
+	iuserdb := database.NewUserDB(db, logger)
 	userhandler := handlers.NewUser(iuserdb)
 
 	userGroup := r.Group("/v1/private") // yet to implement the auth part for private
 
 	userGroup.POST("/users", userhandler.CreateUser)
+	userGroup.GET("/users/profiles/:id", userhandler.GetUserByID)
+	userGroup.GET("/users/:id", userhandler.GetOnlyUserByID)
 
 	if err := r.Run(":" + PORT); err != nil {
 		slog.Error(err.Error())
